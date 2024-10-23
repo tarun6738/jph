@@ -18,7 +18,7 @@ function calculateTimeGaps(serialDates) {
 
         console.log(gapInMillis);
 
-        if (gapInMillis >= THIRTY_MINUTES_IN_MILLIS) {
+        if (gapInMillis < THIRTY_MINUTES_IN_MILLIS) {
             totalGap += gapInMillis;
         }
     }
@@ -40,4 +40,4 @@ const sheetName = 'Sheet1';
 const timestamps = readTimestampsFromExcel(filePath, sheetName);
 const totalGap = calculateTimeGaps(timestamps);
 
-console.log(`Total time gap >= 30 mins: ${totalGap} minutes`);
+console.log(`Total time gap <= 30 mins: ${totalGap} minutes`);
